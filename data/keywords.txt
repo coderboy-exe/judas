@@ -1,0 +1,25 @@
+In news journalism, keywords play a crucial role in categorizing, organizing, and highlighting the main topics covered in a news article. The taxonomy of keywords in news journalism can be grouped into several categories:
+
+1. *News categories:* These keywords represent the broad classification of news stories, such as politics, business, technology, entertainment, sports, and health.
+
+2. *Geographical locations:* Keywords that indicate the geographic focus or origin of the news story, such as countries, cities, regions, or continents (e.g., United States, New York, Europe, Africa).
+
+3. *People:* Keywords related to individuals, including their names, titles, or roles, who are involved in or relevant to the news story (e.g., Joe Biden, Elon Musk, Angela Merkel).
+
+4. *Organizations:* Keywords that represent public and private organizations, companies, and institutions associated with the news story (e.g., United Nations, Google, World Health Organization).
+
+5. *Events:* Keywords that denote specific events or happenings covered by the news story, such as elections, natural disasters, protests, or conferences (e.g., Olympics, Presidential Election, Hurricane Ida).
+
+6. *Issues:* Keywords that highlight the key issues, topics, or themes discussed in the news story, such as climate change, immigration, income inequality, or cybersecurity.
+
+7. *Policies and laws:* Keywords related to legislation, regulations, and policies that are central to the news story (e.g., Affordable Care Act, GDPR, Net Neutrality).
+
+8. *Industries and sectors:* Keywords representing various industries and sectors, such as automotive, energy, financial services, or agriculture.
+
+9. *Products and services:* Keywords that describe specific products, services, or technologies mentioned in the news story (e.g., iPhone, Tesla Model S, 5G).
+
+10. *Emotions and sentiment:* Keywords that convey the tone or sentiment of the news story, such as positive, negative, or neutral.
+
+11. *Timeframe:* Keywords that indicate the specific time frame or period associated with the news story (e.g., 2020, Q1, monthly, annual).
+
+These categories of keywords help journalists, editors, and readers quickly understand the main topics and themes of a news story. Proper use of keywords also improves search engine optimization (SEO) and discoverability of news articles online.
