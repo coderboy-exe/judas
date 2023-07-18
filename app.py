@@ -17,9 +17,19 @@ def get_category():
         return Response("You must pass a valid url", status=500)
     
     category = c.start(url)
-    print(category)
+    split_cat = category.split(";")
+    formatted = [i.strip() for i in split_cat]
+    output = []
+    output_dict = {}
+    for i in formatted:
+        k_v = i.split(":")
+        print(k_v)
+        key = k_v[0]
+        val = k_v[1].strip()
+        output_dict.update({key: val})
+    #     print(item)
     return {
-        "category": category
+        "categories": output_dict
     }, 200
 
 

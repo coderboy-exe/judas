@@ -16,7 +16,7 @@ index = VectorStoreIndex.from_documents(documents)
 def run_index(content):
     query_engine = index.as_query_engine()
     print(query_engine)
-    response = query_engine.query("What is the most relevant category for the following news article (in exactly 1 word)??? " + f"{content}")
+    response = query_engine.query("What are the most relevant keywords and their corresponding categories in the format [category: keyword(s); category: keyword(s), ...]. If a category is not included in the provided article, write [category: None].: " + f"{content}")
 
     stripped = str(response).strip().replace('\n', '')
     # print(stripped)
