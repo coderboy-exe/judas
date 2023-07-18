@@ -23,7 +23,7 @@ def get_category():
     output_dict = {}
     for i in formatted:
         k_v = i.split(":")
-        print(k_v)
+        # print(k_v)
         key = k_v[0]
         val = k_v[1].strip()
         output_dict.update({key: val})
