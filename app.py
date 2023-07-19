@@ -11,25 +11,27 @@ c = Crawler()
 @app.post('/category/')
 def get_category():
     request_data = request.get_json()
-    url = request_data.get("link")
-    print(url)
-    if url is None:
+    urls = request_data.get("links")
+    print(urls)
+    if urls is None:
         return Response("You must pass a valid url", status=500)
     
-    category = c.start(url)
-    split_cat = category.split(";")
-    formatted = [i.strip() for i in split_cat]
     output = []
-    output_dict = {}
-    for i in formatted:
-        k_v = i.split(":")
-        # print(k_v)
-        key = k_v[0]
-        val = k_v[1].strip()
-        output_dict.update({key: val})
-    #     print(item)
+    for url in urls:
+        category = c.start(url)
+        split_cat = category.split(";")
+        formatted = [i.strip() for i in split_cat]
+        output_dict = {}
+        for i in formatted:
+            k_v = i.split(":")
+            # print(k_v)
+            key = k_v[0]
+            val = k_v[1].strip()
+            output_dict.update({key: None if val == "None" else val})
+        #     print(item)
+        output.append(output_dict)
     return {
-        "categories": output_dict
+        "categories": output
     }, 200
 
 
