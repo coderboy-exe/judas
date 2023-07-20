@@ -26,7 +26,7 @@ def get_category():
             k_v = i.split(":")
             # print(k_v)
             key = k_v[0]
-            val = k_v[1].strip()
+            val = k_v[1].strip().strip('.')
             output_dict.update({key: None if val == "None" else val})
         #     print(item)
         output.append(output_dict)
