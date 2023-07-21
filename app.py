@@ -18,18 +18,22 @@ def get_category():
     
     output = []
     for url in urls:
-        category = c.start(url)
-        split_cat = category.split(";")
-        formatted = [i.strip() for i in split_cat]
-        output_dict = {}
-        for i in formatted:
-            k_v = i.split(":")
-            # print(k_v)
-            key = k_v[0]
-            val = k_v[1].strip().strip('.')
-            output_dict.update({key: None if val == "None" else val})
-        #     print(item)
-        output.append(output_dict)
+        try:
+            category = c.start(url)
+            split_cat = category.split(";")
+            formatted = [i.strip() for i in split_cat]
+            output_dict = {}
+            for i in formatted:
+                k_v = i.split(":")
+                # print(k_v)
+                key = k_v[0]
+                val = k_v[1].strip().strip('.')
+                output_dict.update({key: None if val == "None" else val})
+            #     print(item)
+            output.append(output_dict)
+        except Exception as err:
+            print(err)
+            return Response(f"An error occured: {err}", 500)
     return {
         "categories": output
     }, 200
