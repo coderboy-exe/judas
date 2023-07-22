@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as BS4
-from run_index import run_index
+from run_index import run_index, summarize
 
 # url = "https://guardian.ng/"
 
@@ -23,6 +23,13 @@ class Crawler():
 
         cleaned = soup.get_text()
         stripped = str(cleaned).strip().replace('\n', '')
+
+        # print(stripped)
+        return stripped
+
+
+    def categorize(self, stripped):
+        """ Run indexer to categorize articles """
         if len(stripped) > 12000:
             content = stripped[500:-6000]
             # print("content:", len(content))
@@ -58,10 +65,9 @@ class Crawler():
             # print(stripped)
             return res
 
-# Crawler().start("https://www.vanguardngr.com/2023/07/nigeria-practising-plutocracy-not-democracy-falana/")
 
-# https://leadership.ng/world-youth-skills-day-stakeholders-harp-on-youth-employment-through-vocational-digital-education/
+    def make_summary(self, content):
+        """ Create summary for text content """
+        res = summarize(content)
 
-# https://dailytrust.com/gombe-gov-constitutes-committees-on-grazing-reserves-quran-recitation-competition
-
-# https://hausa.legit.ng/mutane/1544975-auren-zaurawa-mata-sun-yalla-ido-sun-hango-yan-takara-da-jagororin-kwankwasiyya/
+        return str(res).strip()

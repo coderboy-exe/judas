@@ -6,7 +6,8 @@ load_dotenv()
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 print(OPENAI_API_KEY)
 
-from llama_index import VectorStoreIndex, SimpleDirectoryReader
+from llama_index import VectorStoreIndex, SimpleDirectoryReader, Prompt
+from llama_index.llms import OpenAI
 
 
 documents = SimpleDirectoryReader('data').load_data()
@@ -23,3 +24,11 @@ def run_index(content):
     return stripped
 
 # run_index("tWorld Youth Skills Day: Stakeholders Harp On Youth Employment Through Vocational Digital Education by Abdullahi Olesin 2 hours ago in News  Photo by Javon Swaby from Pexels Share on WhatsAppShare on FacebookShare on TwitterTelegram  Stakeholders have stressed the need for the government at all levels to make concerted efforts at bridging the skills gap among Nigerian youths through mass vocational digital education.Stakeholders which included the representatives of the Small and Medium Enterprises Development Agency of Nigeria (SMEDAN), National Directorate for Employment (NDE) the National Youth Service Corps (NYSC), Kwara State Chambers for Commerce and Industry (KWACCIMA) and the Nigeria Labour Congress (NLC), bared their minds at an event organised by the Michael Imoudu National Institute For Labour Studies (MINILS), Ilorin to mark the 2023 World Youth Skills Day (WYSD).The United Nations General Assembly in 2014 declared 15th July as the World Youth Skills Day, with the objective of bringing to the fore the strategic importance of equipping young people with required skills for employment and entrepreneurship.The theme for 2023 World Youth Skills Day is ‘Skilling Teachers, Trainers and Youth for Transformative Future’.The theme essentially highlights the roles of teachers and trainers in technical and vocational education and training (TVET), in institutions responsible for transferring relevant skills to the youth.At the event, the director general of MINILS, Ilorin Kwara State, Comrade Issa Aremu, hailed the renewed commitment of President Bola Tinubu’s administration to bridge the skills gap among youths through mass youth vocational digital education.RELATED   JNI To Federal Govt: Secure Nigeria, Crush Terrorists, Bandits, Kidnappers 5 mins ago  JUST-IN: NAF Airstrikes Kill 22 Terrorists Loyal To Slain Katsina Bandit Kingpin 8 mins ago     He observed that the critical component of the renewed hope agenda of Tinubu is youth employability through skills acquisition.The director general called on all stakeholders in the labour market to collaborate with the federal government to train and retrain youths for sustainable jobs and poverty eradication.“As the world undergoes rapid technology, economic and social transformations, young people need the right skills while the teachers and trainers stand at the forefront of these great global efforts, and need to be well equipped to deliver” Aremu said.For his part, the chairman of NLC in Kwara State, Comrade Murtala Okayinka, emphasised need for government to roll out measures that will propel youths to embrace skills acquisition.He says that white collar jobs were no longer available, adding that the only way youths can become self-employed and even employers of labour, is vocational study and skills acquisition.The NLC chairman praised the management of MINILS for drawing the attention of government to the need for a re-orientation of Nigerian youths through the programme.Also speaking, the president of KWACCIMA, Mr Fatai Ayodimeji, aligned himself with submission of the MINILS’s director general and state NLC chairman.He reasoned that since white collar jobs were no longer in existence, government should encourage youths to take interest in skill acquisition.He tasked MINILS to go beyond talkshow by encouraging youths who were into businesses, to exhibit their products in subsequent editions of the programe.Ayodimeji later announced that KWACCIMA would sponsor the trade exhibition aspect of activities marking World Youth Skills Day next year.")
+
+def summarize(content):
+    """ Make the summary request """
+    template = (f"Please summarize this article accurately in exactly sixty(60) words: \n {content}")
+    response = OpenAI().complete(template)
+
+    # print(response)
+    return response
