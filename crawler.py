@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as BS4
-from run_index import run_index, summarize
+from run_index import run_index, summarize, rewrite_tv, rewrite_online, rewrite_radio
 
 # url = "https://guardian.ng/"
 
@@ -32,31 +32,22 @@ class Crawler():
         """ Run indexer to categorize articles """
         if len(stripped) > 12000:
             content = stripped[500:-6000]
-            # print("content:", len(content))
-            # print("stripped:", len(stripped))
             category = run_index(content)
             # print(content)
             return category
         elif len(stripped) > 10000:
             content = stripped[500:-4500]
-            # print("content:", len(content))
-            # print("stripped:", len(stripped))
             category = run_index(content)
             # print(content)
             return category
         elif len(stripped) > 8000:
             content = stripped[500:-3000]
-            # print("content:", len(content))
-            # print("stripped:", len(stripped))
             category = run_index(content)
             # print(content)
             return category
         elif len(stripped) > 6000:
             content = stripped[500:-1500]
-            # print("content:", len(content))
-            # print("stripped:", len(stripped))
             category = run_index(content)
-            # print("category:", category)
             # print(content)
             return category
         else:
@@ -69,5 +60,26 @@ class Crawler():
     def make_summary(self, content):
         """ Create summary for text content """
         res = summarize(content)
+
+        return str(res).strip()
+
+
+    def tv_rewrite(self, content):
+        """ Rewrite article for TV """
+        res = rewrite_tv(content)
+
+        return str(res).strip()
+    
+
+    def radio_rewrite(self, content):
+        """ Rewrite article for Radio """
+        res = rewrite_radio(content)
+
+        return str(res).strip()
+    
+    
+    def online_rewrite(self, content):
+        """ Rewrite article for Online presentation """
+        res = rewrite_online(content)
 
         return str(res).strip()

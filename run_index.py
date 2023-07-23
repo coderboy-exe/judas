@@ -32,3 +32,31 @@ def summarize(content):
 
     # print(response)
     return response
+
+
+def rewrite_tv(content):
+    """ Rewrite content for TV presentation """
+    template = (f"Please rewrite this article for TV presentation: \n {content}")
+    response = OpenAI().complete(template)
+
+    # print(response)
+    return response
+
+
+def rewrite_radio(content):
+    """ Rewrite content for TV presentation """
+    template = (f"Please rewrite this article for a Radio presentation: \n {content}")
+    response = OpenAI().complete(template)
+
+    # print(response)
+    return response
+
+
+def rewrite_online(content):
+    """ Rewrite content for TV presentation """
+    template = (f"Please rewrite this article for an online presentation: \n {content}")
+    response = OpenAI().complete(template)
+
+    # print(response)
+    return response
+

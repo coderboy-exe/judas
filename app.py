@@ -59,6 +59,63 @@ def get_summary():
     }, 200
 
 
+@app.post('/rewrite/tv/')
+def rewrite_tv():
+    request_data = request.get_json()
+    url = request_data.get("link")
+    print(url)
+
+    if url is None:
+        return Response("You must pass a valid url", status=500)  
+    try:
+        content = c.start(url)
+        response = c.tv_rewrite(content)
+    except Exception as err:
+        print(err)
+        return Response(f"An error occured: {err}", 500)
+    return {
+        "response": response
+    }, 200
+
+
+@app.post('/rewrite/radio/')
+def rewrite_radio():
+    request_data = request.get_json()
+    url = request_data.get("link")
+    print(url)
+
+    if url is None:
+        return Response("You must pass a valid url", status=500)  
+    try:
+        content = c.start(url)
+        response = c.radio_rewrite(content)
+    except Exception as err:
+        print(err)
+        return Response(f"An error occured: {err}", 500)
+    return {
+        "response": response
+    }, 200
+
+
+@app.post('/rewrite/online/')
+def rewrite_online():
+    request_data = request.get_json()
+    url = request_data.get("link")
+    print(url)
+
+    if url is None:
+        return Response("You must pass a valid url", status=500)  
+    try:
+        content = c.start(url)
+        response = c.online_rewrite(content)
+    except Exception as err:
+        print(err)
+        return Response(f"An error occured: {err}", 500)
+    return {
+        "response": response
+    }, 200
+
+
 
 
 if __name__ == "__main__":
