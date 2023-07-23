@@ -69,7 +69,7 @@ def rewrite_tv():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
-        response = c.tv_rewrite(content)
+        response = c.tv_rewrite(content).replace('\n', '')
     except Exception as err:
         print(err)
         return Response(f"An error occured: {err}", 500)
@@ -88,7 +88,7 @@ def rewrite_radio():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
-        response = c.radio_rewrite(content)
+        response = c.radio_rewrite(content).replace('\n', '')
     except Exception as err:
         print(err)
         return Response(f"An error occured: {err}", 500)
@@ -107,7 +107,7 @@ def rewrite_online():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
-        response = c.online_rewrite(content)
+        response = c.online_rewrite(content).replace('\n', '')
     except Exception as err:
         print(err)
         return Response(f"An error occured: {err}", 500)
