@@ -121,7 +121,7 @@ class Crawler():
         # stripped = content[500:-1200]
         res = rewrite_tv(content)
         print("tv:", res)
-        return str(res).strip().strip('Register')
+        return str(res).strip().strip('Register').strip("Don't have an account? Sign Up")
     
 
     def radio_rewrite(self, content):
@@ -144,7 +144,7 @@ class Crawler():
         # # stripped = content[500:-1200]
         res = rewrite_radio(content)
         print("radio:", res)
-        return str(res).strip().strip('Register')
+        return str(res).strip().strip('Register').strip("Don't have an account? Sign Up")
     
     
     def online_rewrite(self, content):
@@ -167,4 +167,4 @@ class Crawler():
         # stripped = content[500:-1200]
         res = rewrite_online(content)
         print("online:", res)
-        return str(res).strip().strip('Register')
+        return str(res).strip().strip('Register').strip("Don't have an account? Sign Up")

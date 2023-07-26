@@ -19,7 +19,7 @@ index = VectorStoreIndex.from_documents(documents)
 def run_index(content):
     query_engine = index.as_query_engine(service_context=service_context)
     print(query_engine)
-    response = query_engine.query("What are the most relevant keywords and their corresponding categories in the format [category: keyword(s); category: keyword(s), ...]. If a category is not included in the provided article, write [category: None]. DO NOT INCLUDE the template context in your responses(e.g People: Joe Biden, Elon Musk, Angela Merkel; Organizations: United Nations, Google, World Health Organization; Events: Olympics, Presidential Election, Hurricane Ida; Issues: Climate Change, Immigration, Income Inequality, Cybersecurity; Policies and Laws: Affordable Care Act, GDPR, Net Neutrality; Industries and Sectors: Automotive, Energy, Financial Services, Agriculture; Products and Services: iPhone, Tesla Model S, 5G; Emotions and Sentiment: Positive, Negative, Neutral; Timeframe: 2020, Q1, Monthly, Annual): " + f"{content}")
+    response = query_engine.query("What are the most relevant keywords and their corresponding categories in the format [category: keyword(s); category: keyword(s), ...]. If a category is not included in the provided article, write [category: None]. DO NOT INCLUDE the template context in your responses(e.g People: Joe Biden, Elon Musk, Angela Merkel; Organizations: United Nations, Google, World Health Organization; Events: Olympics, Presidential Election, Hurricane Ida; Issues: Climate Change, Immigration, Income Inequality, Cybersecurity; Policies and Laws: Affordable Care Act, GDPR, Net Neutrality; Industries and Sectors: Automotive, Energy, Financial Services, Agriculture; Products and Services: iPhone, Tesla Model S, 5G; Emotions and Sentiment: Positive, Negative, Neutral; Timeframe: 2020, Q1, Monthly, Annual). The content to analyze is the one in the brackets '()' after the colon: " + f"({content})")
 
     stripped = str(response).strip().replace('\n', '')
     # print(stripped)
@@ -38,7 +38,7 @@ def summarize(content):
 
 def rewrite_tv(content):
     """ Rewrite content for TV presentation """
-    template = (f"Please rewrite the main content of this article intelligently (in English) for TV presentation. DO NOT talk about 'Sign Up' or 'Register': \n {content}")
+    template = (f"Please rewrite the main content of this article intelligently (in English) for TV presentation. DO NOT 'Don't have an account? Sign Up' AT THE BEGINNING OF THE RESPONSE!!!: \n {content}")
     response = OpenAI(temperature=0, model="text-davinci-003").complete(template)
 
     # print(response)
