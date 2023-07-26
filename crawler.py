@@ -33,35 +33,35 @@ class Crawler():
         if len(stripped) > 12000:
             content = stripped[500:-6000]
             category = run_index(content)
-            print("content: ", content)
-            print("category: ", category)
+            # print("content: ", content)
+            # print("category: ", category)
             return category
-        elif len(stripped) > 10000 and len(stripped) < 12000:
+        elif len(stripped) > 10000:
             content = stripped[500:-4500]
             category = run_index(content)
-            print("content: ", content)
-            print("category: ", category)
+            # print("content: ", content)
+            # print("category: ", category)
             # print(content)
             return category
-        elif len(stripped) > 8000 and len(stripped) < 10000:
+        elif len(stripped) > 8000:
             content = stripped[500:-3000]
             category = run_index(content)
-            print("content: ", content)
-            print("category: ", category)
+            # print("content: ", content)
+            # print("category: ", category)
             # print(content)
             return category
-        elif len(stripped) > 6000 and len(stripped) < 8000:
+        elif len(stripped) > 6000:
             content = stripped[500:-1500]
             category = run_index(content)
-            print("content: ", content)
-            print("category: ", category)
+            # print("content: ", content)
+            # print("category: ", category)
             # print(content)
             return category
-        elif len(stripped) > 4000 and len(stripped) < 6000:
+        elif len(stripped) > 4000:
             content = stripped[500:-1200]
             category = run_index(content)
-            print("content: ", content)
-            print("category: ", category)
+            # print("content: ", content)
+            # print("category: ", category)
             # print(content)
             return category
         else:
@@ -73,24 +73,25 @@ class Crawler():
 
     def make_summary(self, content):
         """ Create summary for text content """
-        if len(content) > 12000:
-            stripped = content[500:-6000]
-            res = summarize(stripped)
-        elif len(content) > 10000:
-            stripped = content[500:-4500]
-            res = summarize(stripped)
-        elif len(content) > 8000:
-            stripped = content[500:-3000]
-            res = summarize(stripped)
-        elif len(content) > 6000:
-            stripped = content[500:-1500]
-            res = summarize(stripped)
-        elif len(content) > 4000:
-            stripped = content[500:-1200]
-            res = summarize(stripped)
-        print("content_length:\n", len(content))
-        print("content:\n", stripped)
-        print("summary:\n", res)
+        # if len(content) > 12000:
+        #     stripped = content[500:-6000]
+        #     res = summarize(stripped)
+        # elif len(content) > 10000:
+        #     stripped = content[500:-4500]
+        #     res = summarize(stripped)
+        # elif len(content) > 8000:
+        #     stripped = content[500:-3000]
+        #     res = summarize(stripped)
+        # elif len(content) > 6000:
+        #     stripped = content[500:-1500]
+        #     res = summarize(stripped)
+        # elif len(content) > 4000:
+        #     stripped = content[500:-1200]
+        #     res = summarize(stripped)
+        # print("content_length:\n", len(content))
+        # print("content:\n", stripped)
+        # print("summary:\n", res)
+        res = summarize(content)
 
         return str(res).strip()
 
@@ -99,23 +100,28 @@ class Crawler():
         """ Rewrite article for TV """
         # if len(content) > 12000:
         #     stripped = content[500:-6000]
+        #     print("len_stripped:", len(stripped))
         #     res = rewrite_tv(stripped)
         # elif len(content) > 10000:
         #     stripped = content[500:-4500]
+        #     print("len_stripped:", len(stripped))
         #     res = rewrite_tv(stripped)
         # elif len(content) > 8000:
         #     stripped = content[500:-3000]
+        #     print("len_stripped:", len(stripped))
         #     res = rewrite_tv(stripped)
         # elif len(content) > 6000:
         #     stripped = content[500:-1500]
+        #     print("len_stripped:", len(stripped))
         #     res = rewrite_tv(stripped)
         # elif len(content) > 4000:
         #     stripped = content[500:-1200]
+        #     print("len_stripped:", len(stripped))
         #     res = rewrite_tv(stripped)
-        stripped = content[500:-1200]
-        res = rewrite_tv(stripped)
+        # stripped = content[500:-1200]
+        res = rewrite_tv(content)
         print("tv:", res)
-        return str(res).strip()
+        return str(res).strip().strip('Register')
     
 
     def radio_rewrite(self, content):
@@ -135,10 +141,10 @@ class Crawler():
         # elif len(content) > 4000:
         #     stripped = content[500:-1200]
         #     res = rewrite_radio(stripped)
-        stripped = content[500:-1200]
-        res = rewrite_radio(stripped)
+        # # stripped = content[500:-1200]
+        res = rewrite_radio(content)
         print("radio:", res)
-        return str(res).strip()
+        return str(res).strip().strip('Register')
     
     
     def online_rewrite(self, content):
@@ -158,7 +164,7 @@ class Crawler():
         # elif len(content) > 4000:
         #     stripped = content[500:-1200]
         #     res = rewrite_online(stripped)
-        stripped = content[500:-1200]
-        res = rewrite_radio(stripped)
+        # stripped = content[500:-1200]
+        res = rewrite_online(content)
         print("online:", res)
-        return str(res).strip()
+        return str(res).strip().strip('Register')
