@@ -88,7 +88,10 @@ def rewrite_radio():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
+        # print(content)
         response = c.radio_rewrite(content).replace('\n', '')
+        print("response:", response)
+        print("len_response:", len(response))
     except Exception as err:
         print(err)
         return Response(f"An error occured: {err}", 500)

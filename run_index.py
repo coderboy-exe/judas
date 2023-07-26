@@ -36,7 +36,7 @@ def summarize(content):
 
 def rewrite_tv(content):
     """ Rewrite content for TV presentation """
-    template = (f"Please rewrite this article for TV presentation: \n {content}")
+    template = (f"Please rewrite the main content of this article intelligently (in English) for TV presentation. Please ignore anything unrelated to the main content: \n {content}")
     response = OpenAI().complete(template)
 
     # print(response)
@@ -45,7 +45,7 @@ def rewrite_tv(content):
 
 def rewrite_radio(content):
     """ Rewrite content for TV presentation """
-    template = (f"Please rewrite this article for a Radio presentation: \n {content}")
+    template = (f"Please rewrite the main content of this article intelligently (in English) for a Radio presentation. Please ignore anything unrelated to the main content: \n {content}")
     response = OpenAI().complete(template)
 
     # print(response)
@@ -54,7 +54,7 @@ def rewrite_radio(content):
 
 def rewrite_online(content):
     """ Rewrite content for TV presentation """
-    template = (f"Please rewrite this article for an online presentation: \n {content}")
+    template = (f"Please rewrite the main content of this article intelligently (in English) for an online presentation. Please ignore anything unrelated to the main content: \n {content}")
     response = OpenAI().complete(template)
 
     # print(response)
