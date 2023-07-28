@@ -34,7 +34,7 @@ def get_category():
             output.append(output_dict)
         except Exception as err:
             print(err)
-            return Response(f"An error occured: {err}", 500)
+            return {"response": f"{err}"}, 500
     return {
         "categories": output
     }, 200
@@ -50,10 +50,11 @@ def get_summary():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
-        summary = c.make_summary(content)
+        # print(content)
+        summary = c.make_summary(content).replace('\n', '')
     except Exception as err:
         print(err)
-        return Response(f"An error occured: {err}", 500)
+        return {"response": f"{err}"}, 500
     return {
         "summary": summary
     }, 200
@@ -69,10 +70,11 @@ def rewrite_tv():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
+        # print(content)
         response = c.tv_rewrite(content).replace('\n', '')
     except Exception as err:
         print(err)
-        return Response(f"An error occured: {err}", 500)
+        return {"response": f"{err}"}, 500
     return {
         "response": response
     }, 200
@@ -90,11 +92,11 @@ def rewrite_radio():
         content = c.start(url)
         # print(content)
         response = c.radio_rewrite(content).replace('\n', '')
-        print("response:", response)
-        print("len_response:", len(response))
+        # print("response:", response)
+        # print("len_response:", len(response))
     except Exception as err:
         print(err)
-        return Response(f"An error occured: {err}", 500)
+        return {"response": f"{err}"}, 500
     return {
         "response": response
     }, 200
@@ -110,10 +112,11 @@ def rewrite_online():
         return Response("You must pass a valid url", status=500)  
     try:
         content = c.start(url)
+        # print(content)
         response = c.online_rewrite(content).replace('\n', '')
     except Exception as err:
         print(err)
-        return Response(f"An error occured: {err}", 500)
+        return {"response": f"{err}"}, 500
     return {
         "response": response
     }, 200

@@ -1,0 +1,6 @@
+LEADERSHIP="https://leadership.ng/"
+PUNCH="https://punchng.com/"
+PMNEWS="https://pmnewsnigeria.com/"
+SUN="https://sunnewsonline.com/"
+DAILYTRUST="https://dailytrust.com/"
+THISDAY="https://www.thisdaylive.com/"
