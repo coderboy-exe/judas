@@ -51,7 +51,7 @@ def get_summary():
     try:
         content = c.start(url)
         # print(content)
-        summary = c.make_summary(content).replace('\n', '')
+        summary = c.make_summary(content).strip()
     except Exception as err:
         print(err)
         return {"response": f"{err}"}, 500

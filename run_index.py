@@ -29,7 +29,7 @@ def run_index(content):
 
 def summarize(content):
     """ Make the summary request """
-    template = (f"Please summarize this article accurately in exactly sixty(60) words: \n {content}")
+    template = (f"Please summarize the article enclosed in brackets after the colon accurately and intelligently in exactly sixty(60) words: \n ({content})")
     response = OpenAI(temperature=0, model="text-davinci-003").complete(template)
 
     # print(response)
@@ -38,7 +38,7 @@ def summarize(content):
 
 def rewrite_tv(content):
     """ Rewrite content for TV presentation """
-    template = (f"Please rewrite the main content of this article intelligently (in English) for TV presentation. DO NOT 'Don't have an account? Sign Up' AT THE BEGINNING OF THE RESPONSE!!!: \n {content}")
+    template = (f"Please rewrite the main content of this article enclosed in brackets after the colon intelligently (in English) for TV presentation: \n ({content})")
     response = OpenAI(temperature=0, model="text-davinci-003").complete(template)
 
     # print(response)
@@ -47,7 +47,7 @@ def rewrite_tv(content):
 
 def rewrite_radio(content):
     """ Rewrite content for TV presentation """
-    template = (f"Please rewrite the main content of this article intelligently (in English) for a Radio presentation. DO NOT talk about 'Sign Up' or 'Register': \n {content}")
+    template = (f"Please rewrite the main content of this article enclosed in brackets after the colon intelligently (in English) for a Radio presentation: \n ({content})")
     response = OpenAI(temperature=0, model="text-davinci-003").complete(template)
 
     # print(response)

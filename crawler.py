@@ -58,7 +58,7 @@ class Crawler():
             raise Exception("Sorry, this news source is not supported yet :(")
 
         # cleaned = main.get_text()
-        stripped = str(cleaned).strip().replace('\n', '').replace('\r', '')
+        stripped = str(cleaned).strip().replace('\n', '')
 
         # print(stripped)
         return stripped
@@ -89,7 +89,7 @@ class Crawler():
     def radio_rewrite(self, content):
         """ Rewrite article for Radio """
         res = rewrite_radio(content)
-        print("radio:", res)
+        # print("radio:", res)
         return str(res).strip()
     
     
