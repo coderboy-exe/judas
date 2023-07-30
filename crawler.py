@@ -60,8 +60,11 @@ class Crawler():
         # cleaned = main.get_text()
         stripped = str(cleaned).strip().replace('\n', '')
 
-        # print(stripped)
-        return stripped
+        if len(stripped) > 12000:
+            # print(stripped)
+            return stripped[:12000]
+        else:
+            return stripped
 
 
     def categorize(self, stripped):

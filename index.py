@@ -6,10 +6,13 @@ c = Crawler()
 url = sys.argv[1]
 
 parsed = c.start(url)
+cropped = parsed[:14000]
 
-print(f"parsed: {parsed}\n\n")
+print(len(cropped))
 
-categories = run_index(f"({parsed})")
+print(f"\n\n parsed: {cropped}\n\n")
+
+categories = run_index(f"({cropped})")
 print(categories)
 
 # c.make_summary(parsed)
