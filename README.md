@@ -1,6 +1,6 @@
 # QB Crawler
 
-A simple crawler that uses GPT-3 to crawl webpages and categorize their content.
+A simple crawler that uses crawls news articles and analyzes their content
 
 ## Setup
 
