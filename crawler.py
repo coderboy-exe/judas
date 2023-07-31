@@ -8,6 +8,8 @@ from helpers import (
     clean_pmnews,
     clean_dailytrust,
     clean_thisday,
+    clean_allafrica,
+    generic_clean,
     )
 from constants import (
     LEADERSHIP,
@@ -16,6 +18,7 @@ from constants import (
     SUN,
     DAILYTRUST,
     THISDAY,
+    ALLAFRICA,
     )
 
 
@@ -31,6 +34,7 @@ class Crawler():
         # print(res.text)
 
         soup = BS4(res.content, "html.parser")
+        cleaned = ""
 
         if url.startswith(LEADERSHIP):
             print("leadership\n\n")
@@ -52,10 +56,23 @@ class Crawler():
             print("thisday\n\n")
             cleaned = clean_thisday(soup)
             # print(cleaned)
+        elif url.startswith(ALLAFRICA):
+            print("allafrica\n\n")
+            cleaned = clean_allafrica(soup)
+            # print(cleaned)
 
         else:
-            print("This news source is not supported yet :( ")
-            raise Exception("Sorry, this news source is not supported yet :(")
+            article = generic_clean(soup)
+            stripped_article = str(article).strip().replace('\n', '')
+            if len (stripped_article) > 12000:
+                cleaned = stripped_article[1000:-3000]
+                # print(cleaned)
+            else:
+                cleaned = stripped_article
+            
+            # print("This news source is not supported yet :( ")
+            # raise Exception("Sorry, this news source is not supported yet :(")
+
 
         # cleaned = main.get_text()
         stripped = str(cleaned).strip().replace('\n', '')

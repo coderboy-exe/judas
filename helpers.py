@@ -29,3 +29,16 @@ def clean_thisday(soup):
     main = soup.find_all("div", class_="article-content")
     cleaned = main[0].get_text()
     return cleaned
+
+def clean_allafrica(soup):
+    """clean soup object of pmnews news article page"""
+    main = soup.find_all("div", class_="story-body")
+    cleaned = main[0].get_text()
+    return cleaned
+
+def generic_clean(soup):
+    """clean soup object from other sources"""
+    cleaned = soup.get_text()
+    stripped = str(cleaned).strip().replace('\n', '')
+    print(stripped)
+    return stripped
