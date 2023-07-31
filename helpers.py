@@ -33,7 +33,13 @@ def clean_thisday(soup):
 def clean_allafrica(soup):
     """clean soup object of pmnews news article page"""
     main = soup.find_all("div", class_="story-body")
-    cleaned = main[0].get_text()
+    if main == None or main == []:
+        text = soup.get_text()
+        stripped = text[4000:-1500]
+        cleaned = str(stripped).strip().replace('\n', '')
+    else:
+        # print(cleaned)
+        cleaned = main[0].get_text()
     return cleaned
 
 def generic_clean(soup):
