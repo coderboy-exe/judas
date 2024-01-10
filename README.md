@@ -1,4 +1,4 @@
-# QB Crawler
+# JUDAS
 
 A simple crawler that uses crawls news articles and analyzes their content
 
