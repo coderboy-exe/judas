@@ -30,8 +30,6 @@ OPENAI_API_KEY=<YOUR_API_KEY>
 
 ## Usage
 
-### -- These Instructions are outdated. The README will be updated soon --
-
 1. The keywords file is in the `data` folder. You can add as many more context files for GPT to index and use. (N.B: This will cost more money as the usage is calculated by number of tokens/characters).
 2. To run the crawler, run the `index.py` file with the URL to be crawled/categorized as the second command line argument. For example:
 
@@ -53,6 +51,11 @@ url = sys.argv[1]
 python3 app.py
 ```
 The Flask server will start running on port 5000.
+
+
+### -- These Instructions are outdated. The README will be updated soon --
+
+
 
 2. Send a post request to `localhost:5000/category/`
 
