@@ -52,10 +52,11 @@ python3 app.py
 ```
 The Flask server will start running on port 5000.
 
+## ----------------------------- WARNING ---------------------------------------
 
-### -- These Instructions are outdated. The README will be updated soon --
+### NOTE: -- These Instructions are outdated. The README will be updated soon --
 
-
+## ----------------------------- WARNING ---------------------------------------
 
 2. Send a post request to `localhost:5000/category/`
 
