@@ -1,4 +1,4 @@
-# JUDAS
+# Judas
 
 A simple crawler that uses crawls news articles and analyzes their content
 
