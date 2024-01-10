@@ -4,7 +4,7 @@ A simple crawler that uses crawls news articles and analyzes their content
 
 ## Setup
 
-1. Navigate into the `NewsAggrPython` directory.
+1. Navigate into the `judas` directory.
 2. Create a virtual environment named `my-env`:
 
 ```python
@@ -29,6 +29,8 @@ OPENAI_API_KEY=<YOUR_API_KEY>
 
 
 ## Usage
+
+### -- These Instructions are outdated. The README will be updated soon --
 
 1. The keywords file is in the `data` folder. You can add as many more context files for GPT to index and use. (N.B: This will cost more money as the usage is calculated by number of tokens/characters).
 2. To run the crawler, run the `index.py` file with the URL to be crawled/categorized as the second command line argument. For example:
